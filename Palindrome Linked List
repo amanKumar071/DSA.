@@ -43,3 +43,28 @@ bool isPalindrome(LinkedListNode<int> *head) {
     return true;
 
 }
+
+
+// 2nd  METHOD 
+
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        ListNode* prev = NULL;
+        ListNode* curr= head;
+        ListNode* next = NULL;
+
+        while(curr != NULL && curr ->next !=NULL){
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            next = curr;
+        }
+
+        if(head == prev) {
+            return true;
+        }
+        
+        return false;
+    }
+};
